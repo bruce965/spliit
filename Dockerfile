@@ -13,7 +13,7 @@ COPY ./prisma ./prisma
 
 RUN apk add --no-cache openssl && \
     npm ci --ignore-scripts && \
-    npx prisma generate
+    npx run generate
 
 COPY ./src ./src
 COPY ./messages ./messages
@@ -32,7 +32,7 @@ COPY --from=base /usr/app/package.json /usr/app/package-lock.json /usr/app/next.
 COPY --from=base /usr/app/prisma ./prisma
 
 RUN npm ci --omit=dev --omit=optional --ignore-scripts && \
-    npx prisma generate
+    npx run generate
 
 FROM node:21-alpine AS runner
 
@@ -45,5 +45,6 @@ COPY ./public ./public
 COPY ./scripts ./scripts
 COPY --from=base /usr/app/prisma ./prisma
 COPY --from=base /usr/app/.next ./.next
+COPY --from=base /usr/app/.prisma ./.prisma
 
 ENTRYPOINT ["/bin/sh", "/usr/app/scripts/container-entrypoint.sh"]

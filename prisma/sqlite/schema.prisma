@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output = "../../.prisma/client/sqlite"
 }
 
 datasource db {
@@ -91,7 +92,6 @@ model RecurringExpenseLink {
   // and any prior related recurring expenses, they'll need to delete them one by one.
   nextExpenseCreatedAt DateTime?
   nextExpenseDate      DateTime
-
 }
 
 enum RecurrenceRule {

@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client'
+import { Prisma } from '@/lib/prisma'
 import { initTRPC } from '@trpc/server'
 import { cache } from 'react'
 import superjson from 'superjson'

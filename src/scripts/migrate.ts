@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { randomId } from '@/lib/api'
 import { prisma } from '@/lib/prisma'
-import { Prisma } from '@prisma/client'
 import { Client } from 'pg'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'

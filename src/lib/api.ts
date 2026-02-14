@@ -5,7 +5,7 @@ import {
   Expense,
   RecurrenceRule,
   RecurringExpenseLink,
-} from '@prisma/client'
+} from '@/lib/prisma'
 import { nanoid } from 'nanoid'
 
 export function randomId() {
